@@ -1,0 +1,164 @@
+.invisivel{
+  display: none;
+}
+
+.alert {
+  width: 50%;
+ 
+}
+
+.glyphicon{
+  padding: 5px;
+
+}
+
+.data{
+  width: 200px;
+  text-align: center;
+}
+
+.n_camisa{
+  text-align: center;
+  width: 50px;
+}
+/*listar_partidas*/
+      .cadastro_partida{
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .nova_partida{
+        background-color: green;
+        color:  white;
+      }
+
+      .nova_partida a{
+        color: white;
+      }
+
+.button_form{
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+.button_nova_partida{
+  text-align: center;
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+
+.form_partida{
+  margin-top: 20px;
+}
+
+
+
+      .gallery-content { padding: 10px;  color:yellow; }
+        th{
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        td{
+            color: white;
+            padding: 5px;
+        }
+
+        .nome_clube_jogadores{
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .nome_jogador{
+          text-align: left;
+          padding: 10px;
+        }
+
+        .editar{
+            color: white;
+        }
+
+         .editar a{
+            color: white;
+        }
+
+         .editar a:hover{
+            color: white;
+        }
+
+         .excluir a{
+            color: white;
+        }
+          .excluir a:hover{
+            color: white;
+        }
+        .excluir{
+            color: white;
+        }
+
+        /*agendar_partida*/
+        
+        .rodada_partida{
+          width: 40px;
+        }
+
+        /*editar_partida*/
+
+        .marcacao_red{
+            background-color: red;
+        }
+
+        .placar{
+          width: 40px;
+        }
+
+ /*===============listar jogadores===============*/
+
+ .listar_jogadores{
+   margin: 0 auto;
+   width: 70%;
+ }
+
+.listar_jogadores tbody tr:hover{
+   background-color: rgba(0, 0, 0, 0.7);
+ }
+
+
+
+ .novo_jogador{
+  text-align: left;
+  color: yellow;
+ }
+
+
+
+@media only screen and (max-width: 450px) {
+
+  .gallery-content { padding: 5px;  color:yellow; }
+        th{
+            padding: 3px;
+            font-size: 14px;
+        }
+        td{
+            padding: 3px;
+            font-size: 14px;
+        }
+
+    .listar_partidas{
+       width: 100% ;  
+    }
+
+    .listar_jogadores{
+      width: 100%;
+    }      
+
+} 
+
+
+
+
+
+
