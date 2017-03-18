@@ -3,7 +3,7 @@
 	error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
     // obtém a conexão com o banco MySQL
 	
-    $conexao = mysqli_connect("localhost", "id335738_ligas", "hvlk1998") or print (mysql_error());  
+    $conexao = mysqli_connect("localhost", "root", "") or print (mysql_error());  
   
   	  $sql = "use ligas";
    

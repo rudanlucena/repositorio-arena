@@ -32,8 +32,18 @@
 						               
 						            $nome_campeonato = $_POST['nome_campeonato'];
 						            $quantidade_grupos = $_POST['quant_grupos'];
+						            $criterio_desempate1 = $_POST['criterioDesempate1'];
+						            $criterio_desempate2 = $_POST['criterioDesempate2'];
+						            $criterio_desempate3 = $_POST['criterioDesempate3'];
+						            $criterio_desempate4 = $_POST['criterioDesempate4'];
+						            $limite_cartao_amarelo = $_POST['limiteCartaoAmarelo']; 
+						            $limite_cartao_vermelho = $_POST['limiteCartaoVermelho']; 
+						            $pontos_vitoria = $_POST['pontosVitoria'];
+						            $pontos_empate = $_POST['pontosEmpate'];
+						            $pontos_derrota = $_POST['pontosDerrota'];
 
-								        $sql ="UPDATE settings set nome_campeonato='$nome_campeonato', grupos ='$quantidade_grupos'";
+
+								        $sql ="UPDATE settings set nome_campeonato='$nome_campeonato', grupos='$quantidade_grupos', limite_cartao_amarelo='$limite_cartao_amarelo', limite_cartao_vermelho='$limite_cartao_vermelho', pontos_vitoria='$pontos_vitoria', pontos_empate='$pontos_empate', pontos_derrota='$pontos_derrota', criterio_desempate1='$criterio_desempate1', criterio_desempate2='$criterio_desempate2', criterio_desempate3='$criterio_desempate3', criterio_desempate4='$criterio_desempate4' ";
 									    $result = mysqli_query( $db, $sql);
 
 											if(!$result)
@@ -42,6 +52,7 @@
 	                                                        <a href="../partida/listar_rodadas.php"><button type="button" class="btn btn-danger">ok</button>
                                                       </div>';
 										    else{
+										    	ranking();
 												echo '<div class="alert alert-success">
 											                <strong>Success!</strong> configuraçoes salvas com sucesso.
 											                <a href="../partida/listar_rodadas.php"><button type="button" class="btn btn-primary">ok</button>

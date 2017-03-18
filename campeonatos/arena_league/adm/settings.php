@@ -23,6 +23,17 @@
       <link href="../../../bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
       <link href="../../../css/templatemo_style.css" rel="stylesheet" media="screen">
       <link rel="stylesheet" href="../../../adm/css/style.css"> 
+
+      <style>
+        select{
+          margin-top: 0px;
+        }
+        .login-form h1{
+          font-size: 20px;
+          border-bottom: 2px solid;
+          color: yellow;
+        }
+      </style>
   </head>
 
   <body>
@@ -45,6 +56,7 @@
 
                             <form action="save_settings.php"method="post">
                                 <div class="login-form">
+                                      <h1>Configurações</h1>
 
                                       <div class="form-group log-status">
                                          <label>Nome campeonato:</label>
@@ -56,8 +68,69 @@
                                          <input type="number" min="0" class="form-control" name="quant_grupos" value='<?=$config['grupos']?>' required>
                                       </div>
 
+                                      <h1>Critérios Desempate:</h1>
+
+                                      <div class="form-group log-status">
+                                         <label>1º</label>
+                                         <select class="form-control" name="criterioDesempate1">
+                                            <option value='<?=$config['criterio_desempate1']?>' selected><?php echo $config['criterio_desempate1']; ?></option>
+                                            <option value='<?=$config['criterio_desempate2']?>' ><?php echo $config['criterio_desempate2']; ?></option>
+                                            <option value='<?=$config['criterio_desempate3']?>' ><?php echo $config['criterio_desempate3']; ?></option>
+                                         </select>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label>2º</label>
+                                         <select class="form-control" name="criterioDesempate2">
+                                            <option value='<?=$config['criterio_desempate1']?>' ><?php echo $config['criterio_desempate1']; ?></option>
+                                            <option value='<?=$config['criterio_desempate2']?>' selected><?php echo $config['criterio_desempate2']; ?></option>
+                                            <option value='<?=$config['criterio_desempate3']?>' ><?php echo $config['criterio_desempate3']; ?></option>
+                                         </select>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label>3º</label>
+                                         <select class="form-control" name="criterioDesempate3">
+                                            <option value='<?=$config['criterio_desempate1']?>' ><?php echo $config['criterio_desempate1']; ?></option>
+                                            <option value='<?=$config['criterio_desempate2']?>' ><?php echo $config['criterio_desempate2']; ?></option>
+                                            <option value='<?=$config['criterio_desempate3']?>' selected><?php echo $config['criterio_desempate3']; ?></option>
+                                         </select>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label>4º</label>
+                                         <input type="text" class="form-control" name="criterioDesempate4" value='<?=$config['criterio_desempate4']?>' required readonly>
+                                      </div>
+
+                                      <h1>Limite Cartões:</h1>
+                                      <div class="form-group log-status">
+                                         <label><img src="../../../images/cartao_amarelo.png"></label>
+                                         <input type="Number" class="form-control" name="limiteCartaoAmarelo" value='<?=$config['limite_cartao_amarelo']?>' required>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label><img src="../../../images/cartao_vermelho.png"></label>
+                                         <input type="Number" class="form-control" name="limiteCartaoVermelho" value='<?=$config['limite_cartao_vermelho']?>' required>
+                                      </div>
+
+                                      <h1>Pontos:</h1>
+                                      <div class="form-group log-status">
+                                         <label>Vitoria<span class="glyphicon glyphicon-arrow-up"></span></label>
+                                         <input type="Number" class="form-control" name="pontosVitoria" value='<?=$config['pontos_vitoria']?>' required>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label>Empate<span class="glyphicon glyphicon-arrow-right"></span></label>
+                                         <input type="Number" class="form-control" name="pontosEmpate" value='<?=$config['pontos_empate']?>' required>
+                                      </div>
+
+                                      <div class="form-group log-status">
+                                         <label>Derrota<span class="glyphicon glyphicon-arrow-down"></span></label>
+                                         <input type="Number" class="form-control" name="pontosDerrota" value='<?=$config['pontos_derrota']?>' required>
+                                      </div>
+
                                       <span class="alert">Invalid Credentials</span>
-                                      <button type="submit" class="log-btn" >SALVAR</button>
+                                      <button type="submit" class="log-btn" ><span class="glyphicon glyphicon-floppy-disk"></span>SALVAR</button>
                                       
                                 </div><!--/.login-form-->
                             </form>

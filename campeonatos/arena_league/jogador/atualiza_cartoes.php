@@ -12,11 +12,6 @@
 
             $logado = $_SESSION['login'];
             include("../conexao.php");
-            $nome_jogador = $_POST['nome_jogador'];
-            $camisa_jogador = $_POST['camisa_jogador'];
-            $clube_jogador = $_POST['clube_jogador'];
-            $posicao_jogador = $_POST['posicao_jogador'];
-            $gols_jogador = $_POST['gols_jogador'];
             $id = $_POST['id_jogador'];
             $cartao_amarelo = $_POST['cartao_amarelo'];
             $cartao_vermelho = $_POST['cartao_vermelho'];
@@ -30,10 +25,7 @@
                if(($cartao_amarelo == $limite_amarelo) or ($cartao_vermelho == $limite_vermelho)){
                   $status = "suspenso";
                }
-            }
-
-
-            
+            }      
     ?>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,21 +42,21 @@
             <div class="row">
                     <div class="col-md-12">
                         <?php
-                                        $sql ="UPDATE jogadores set nome ='$nome_jogador', num_camisa='$camisa_jogador', clube='$clube_jogador', posicao='$posicao_jogador', gols='$gols_jogador', cartao_amarelo='$cartao_amarelo', cartao_vermelho='$cartao_vermelho', status='$status' where id='$id'";
+                                        $sql ="UPDATE jogadores set cartao_amarelo='$cartao_amarelo', cartao_vermelho='$cartao_vermelho', status='$status' where id='$id'";
                                         $result = mysqli_query( $db, $sql);
                                                      if(!$result)
                                                      {
                                                       ?>
                                                          <div class="alert alert-danger">
                                                                   <strong>Error!</strong> não foi possivel atualizar os dados do jogador.
-                                                                  <a href="listar_jogador.php?id=<?=$clube_jogador?>"><button type="button" class="btn btn-danger">ok</button>
+                                                                  <a href="jogadores_com_cartao.php"><button type="button" class="btn btn-danger">ok</button>
                                                               </div>
                                                        <?php       
                                                      }
                                                      else{
                                                         ?><div class="alert alert-success">
-                                                                   <strong>Success!</strong> jogador atualizado com sucesso.
-                                                                        <a href="listar_jogador.php?id=<?=$clube_jogador?>"><button type="button" class="btn btn-primary">ok</button>
+                                                                   <strong>Success!</strong> cartôes atualizado com sucesso.
+                                                                        <a href="jogadores_com_cartao.php"><button type="button" class="btn btn-primary">ok</button>
                                                                     </div>
                                                         <?php     
                                                      }

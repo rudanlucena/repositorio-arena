@@ -21,7 +21,7 @@
             <ul class="dropdown-menu">
                 <li ><a href="../partida/listar_rodadas.php"><span class="glyphicon glyphicon-list"></span>rodadas</a></li>
                 <li ><a href="../partida/selecionar_data.php"><span class="glyphicon glyphicon-refresh"></span>Em Tempo Real</a></li>
-                <li ><a href="../partida/agenda_rodada.php"><span class="glyphicon glyphicon-calendar"></span>Nova Rodada</a></li>
+                <li ><a href="../partida/agenda_rodada.php"><span class="glyphicon glyphicon-calendar"></span>Novo</a></li>
             </ul>
         </li>
       </ul>
@@ -32,8 +32,8 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu ">
-                <li ><a href="../clube/listar_clube.php"><span class="glyphicon glyphicon-list"></span>Listar Clubes</a></li>
-                <li ><a href="../clube/cadastrar_clube.php"><span class="glyphicon glyphicon-plus"></span>Novo Clube</a></li>
+                <li ><a href="../clube/listar_clube.php"><span class="glyphicon glyphicon-list"></span>Listar</a></li>
+                <li ><a href="../clube/cadastrar_clube.php"><span class="glyphicon glyphicon-plus"></span>Novo</a></li>
           </ul>
         </li>
       </ul>
@@ -44,8 +44,9 @@
                <span class="caret"></span>
             </a>
             <ul class="dropdown-menu ">
-                <li ><a href="../jogador/selecionar_clube.php"><span class="glyphicon glyphicon-list"></span>Listar Jogadores</a></li>
-                <li ><a href="../jogador/selecionar_clube.php"><span class="glyphicon glyphicon-plus"></span>cadastro Jogadores</a></li> 
+                <li ><a href="../jogador/selecionar_clube.php"><span class="glyphicon glyphicon-list"></span>Listar</a></li>
+                <li ><a href="../jogador/selecionar_clube.php"><span class="glyphicon glyphicon-plus"></span>Novo</a></li> 
+                <li ><a href="../jogador/jogadores_com_cartao.php"><span class="glyphicon"><img src="../../../images/cartao_amarelo_vermelho.png"></span>Com Cartão</a></li> 
             </ul>
         </li>
       </ul>
@@ -69,8 +70,7 @@
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu ">
-                <li ><a href="../partida/atualizar_ranking.php"><span class="glyphicon glyphicon-refresh"></span></span>Atualizar</a></li>
-                
+              <li ><a href="../adm/atualizar_ranking.php"><span class="glyphicon glyphicon-refresh"></span></span>Atualizar</a></li>  
             </ul>
         </li>
       </ul>
@@ -92,7 +92,7 @@
             <span class="caret"></span></a>
             <ul class="dropdown-menu ">
                 <li ><a href="../adm/editar_senha.php"><span class="glyphicon glyphicon-pencil"></span></span>Editar Senha</a></li>
-                <li><a href="../adm/finaliza_sessao.php"><span class=" glyphicon glyphicon-log-out"></span> Sair</a></li>
+                <li><a href="../adm/finaliza_sessao.php"><span class=" glyphicon glyphicon-log-out"></span>Sair</a></li>
             </ul>
         </li>
       </ul>

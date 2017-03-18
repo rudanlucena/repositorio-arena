@@ -86,12 +86,10 @@
                                 
                                     <img class="logo_arena" src="../../images/logo_arena/arenam1lg4au.png">
                                     <?php
-                                        $nomes = $db->query("SELECT * from settings");
-                                        if($nomes){
-                                            while ($campeonato = $nomes->fetch_assoc()){
-                                                $nome = $campeonato['nome_campeonato']; 
-                                            }
-                                            $nomes->free();
+                                        $settings = $db->query("SELECT nome_campeonato from settings");
+                                        if($settings){
+                                            $settings = $settings->fetch_assoc();
+                                            $nome = $settings['nome_campeonato'];                                             
                                         } 
                                     ?>
                                     <h1 class="texto_amarelo"><?php echo $nome ?></h1>
@@ -196,98 +194,10 @@
                                      </div> <!-- /.page-header -->
 
                                      <div class="row">
-
-                                       <?php
-                                            $q_grupo = $db->query("SELECT * from settings");
-                                            if($q_grupo){
-                                                while ($grupos = $q_grupo->fetch_assoc()){
-                                                    $quant_grupos = $grupos['grupos']; 
-                                                }
-                                              $q_grupo->free();  
-                                            }
-
-                                            for($i=1; $i<=$quant_grupos; $i++){
-                                       ?>
-
-                                                <div class="col-md-6 col-sm-6">
-
-                                                    <div class="table-responsive">
-
-                                                        <table class="lista_tabela gallery-content">
-
-                                                            <thead>
-                                                               <td colspan="9"><div class="titulo_grupo">GRUPO <?php echo($i) ?></div></td>
-                                                            </thead>
-
-                                                            <tr class="inf_tabela">
-                                                                <th></th>
-                                                               
-                                                                <th>TIME</th>
-                                                                <th>PTS</th>
-                                                                <th>J</th>
-                                                                <th>V</th>
-                                                                <th>E</th>
-                                                                <th>D</th>
-                                                                <th>SG</th>
-                                                            </tr>
-                                                             
-                                                            <?php
-                                                                $grupo = $db->query("SELECT * FROM `clube` where grupo='$i' order by pontos desc, vitorias desc, saldo_gols desc, gols_marcados desc, gols_sofridos asc");
-                                                                if($grupo){
-                                                                    $cont=1;
-                                                                    while ($clube = $grupo->fetch_assoc()){
-                                                            ?>
-
-
-                                                                <tr>  
-                                                                    <td class="posicao_time_tabela">
-                                                                      <?=$cont++?>º
-                                                                    </td>
-
-                                                                    <td class="nome_time_tabela">
-                                                                        <spam class="escudo"><img src="../../images/times/escudo.png"></spam><?=$clube['abreviacao']?>
-                                                                    </td>
-
-                                                                    <td class="pontos_tabela">
-                                                                        <?=$clube['pontos']?>
-                                                                    </td>
-
-                                                                    <td class="quantidade_jogos">
-                                                                       <?=$clube['jogos']?>
-                                                                    </td>
-
-                                                                    <td class="quantidade_vitorias">
-                                                                       <?=$clube['vitorias']?>
-                                                                    </td>
-
-                                                                    <td class="quantidade_empates">
-                                                                      <?=$clube['empates']?>
-                                                                    </td>
-
-                                                                    <td class="quantidade_derrotas">
-                                                                       <?=$clube['derrotas']?>
-                                                                    </td>
-
-                                                                    <td class="saldo_gols">
-                                                                      <?=$clube['saldo_gols']?>
-                                                                    </td>
-                                                                </tr>
-
-                                                            <?php         
-                                                                   }
-                                                                 $grupo->free();  
-                                                                }
-                                                            ?>
-                          
-                                                        </table>
-                                                    </div><!--./table-responsive-->    
-                                                </div><!--/col--> 
-
-                                            <?php
-                                                 }
-                                            ?>
-
-                                    </div><!--/row-->    
+                                         <?php
+                                            include("classificacao.php");
+                                         ?>
+                                     </div><!--/row-->    
                                 </div> <!-- /.fase_de_grupos-->
     <!-- _____________________________________________________________________________________________________________________________________________________ -->
                                                             
@@ -325,8 +235,8 @@
                                                                             <th></th><!--RANKING-->
                                                                              
                                                                             <th>JOGADOR</th>
-                                                                            <th>CLUBE</th>
-                                                                            <th>GOLS</th>
+                                                                            <th><img src="../../images/times/escudo.png"></th>
+                                                                            <th><img src="../../images/bola.png"></th>
                                                                         </tr> 
                                                                          
                                                                         <?php
@@ -338,27 +248,23 @@
 
                                                                             <tr class="linha_artilheiro">  
 
-                                                                                <td class="posicao_artilheiro">
+                                                                                <td class="texto_amarelo">
                                                                                     <?=$cont++?>º
                                                                                 </td>
 
                                                                                 <td > 
                                                                                     <div class="nome_jogador">
-                                                                                        <spam><?=$artilheiro['nome']?></spam> 
+                                                                                        <spam class="member-name"><?=$artilheiro['nome']?></spam> 
                                                                                         <div class="posicao_jogador">
-                                                                                            <span><?=$artilheiro['posicao']?></span> 
-                                                                                            <span><?=$artilheiro['num_camisa']?></span> 
+                                                                                            <span class="member-name"><?=$artilheiro['posicao']?></span> 
+                                                                                            <span class="member-name"><?=$artilheiro['num_camisa']?></span> 
                                                                                         </div>
                                                                                      </div> 
                                                                                 </td> 
 
                                                                                 <td> 
-                                                                                    <div class="escudo_time_artilheiro">
-                                                                                        <spam><img src="../../images/times/escudo.png"></spam>           
-                                                                                    </div> 
-
                                                                                     <div class="time_artilheiro">
-                                                                                        <spam class="gallery-title"><?=$artilheiro['clube']?></spam>                                                                                            
+                                                                                        <spam class="member-name"><?=$artilheiro['clube']?></spam>                                                                                            
                                                                                     </div> 
                                                                                 </td> 
 
@@ -465,12 +371,7 @@
                                                                             <p><h3>ELENCO</h3></p>
                                                                     </div>
 
-                                                                    <div class="img_tecnico">
-                                                                        <img src="../../images/times/jogador.png">
-                                                                            <div>
-                                                                                <spam><?=$clube['tecnico']?></spam> <div class="texto_amarelo"> TECNICO</div>
-                                                                            </div>
-                                                                    </div>
+                                                                    
 
                                                                     <div class="table-responsive">
                                                                 
@@ -500,9 +401,9 @@
 
                                                                                     <td> 
                                                                                         <div class="nome_jogador">
-                                                                                            <spam class="gallery-title"><?=$jogador['nome']?></spam> 
+                                                                                            <spam class="member-name"><?=$jogador['nome']?></spam> 
                                                                                                 <div class="posicao_jogador">
-                                                                                                    <span><?=$jogador['posicao']?></span>
+                                                                                                    <span ><?=$jogador['posicao']?></span>
                                                                                                     <span><?=$jogador['num_camisa']?></span> 
                                                                                                 </div>
                                                                                         </div> 
@@ -511,13 +412,20 @@
                                                                                     <td><?=$jogador['gols']?></td>
                                                                                     <td><?=$jogador['cartao_amarelo']?></td>
                                                                                     <td><?=$jogador['cartao_vermelho']?></td>      
-                                                                                </tr> 
+                                                                                </tr>
 
                                                                             <?php         
                                                                                         }
                                                                                     $jogadores->free(); 
                                                                                 }
                                                                             ?> 
+
+                                                                                <tr>
+                                                                                    <td colspan="5">
+                                                                                        <div><h4>TÉCNICO</h4></div>
+                                                                                        <div class="member-name"><h5>(<?=$clube['tecnico']?>)</h5></div>
+                                                                                    </td>
+                                                                                </tr> 
 
                                                                         </table>
                                                                     </div><!-- /.table-responsive-->

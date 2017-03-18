@@ -15,7 +15,6 @@
 
           $logado = $_SESSION['login'];
           $id = $_GET['id']; 
-          $nome_clube = $_GET['nome_clube'];
           include("../conexao.php");        
     ?>
     
@@ -33,12 +32,12 @@
           include("../menu_adm.php");
       ?>
 
-    <div class="bg-image"></div>
-    <div class="main-content">
+      <div class="bg-image"></div>
+      <div class="main-content">
         <div class="container">
                   
 
-                <form action="atualiza.php" method="post" name="partida">
+                <form action="atualiza_cartoes.php" method="post" name="partida">
 
                   <?php
                       $jogadores = $db->query("SELECT * from jogadores where id='$id'");
@@ -46,64 +45,14 @@
                            while ($jogador = $jogadores->fetch_assoc()){
                   ?>
 
-                            <div class="login-form"> 
+                            <div class="login-form">
+
+                                <div class="titulo_form">        
+                                  </span><h1><?=$jogador['nome']?></h1>
+                                </div> <!-- /.titulo_form -->  
 
                                 <div class="form-group log-status invisivel">
                                     <input type="text" class="form-control" name="id_jogador" value=<?=$jogador['id']?> readonly>
-                                </div>
-
-                                <div class="form-group log-status">
-                                    <label>nome:</label>
-                                    <input type="text" class="form-control" name="nome_jogador" value='<?=$jogador['nome']?>' required>
-                                </div>
-
-                                <div class="form-group log-status">
-                                    <label>camisa:</label>
-                                    <input type="Number" class="form-control" min="0" name="camisa_jogador" value=<?=$jogador['num_camisa']?>>
-                                </div>
-
-
-                                <div class="form-group log-status">
-                                    <label>clube:</label>
-                                    <select class="form-control" name="clube_jogador" required>
-
-                                            <option class="marcacao_red" value='<?=$jogador['clube']?>' selected><?=$jogador['clube']?></option>
-
-                                            <?php
-                                              $clubes = $db->query('SELECT nome from clube');
-                                              if($clubes){
-                                                  while ($clube = $clubes->fetch_assoc()){
-                                            ?>
-                                                        <option value='<?=$clube['nome']?>'><?=$clube['nome']?></option>
-
-                                            <?php         
-                                                     }
-                                                  $clubes->free(); 
-                                               }
-                                            ?> 
-                                    </select>
-                                </div>
-
-                         
-                                <div class="form-group log-status">
-                                    <label>posicao:</label>
-                                    <select class="form-control" name="posicao_jogador">
-                                            <?php if($jogador['posicao']){ ?><option class="marcacao_red" value=<?=$jogador['posicao']?> selected><?=$jogador['posicao']?></option><?php } ?>
-                                            <option value="">SEM POSICAO</option>
-                                            <option value="gol">gol</option>
-                                            <option value="zag">zag</option>
-                                            <option value="vol">vol</option>
-                                            <option value="lat">lat</option>
-                                            <option value="mei">mei</option>
-                                            <option value="ata">ata</option>
-                                            <option value="cen">cen</option>
-                                            <option value="pon">pon</option>
-                                    </select>
-                                </div>
-
-                                 <div class="form-group log-status">
-                                    <label>gols:</label>
-                                    <input type="Number" class="form-control"  min="0" name="gols_jogador" value=<?=$jogador['gols']?> required>
                                 </div>
 
                                 <?php
@@ -116,17 +65,17 @@
                                 ?>
 
                                 <div class="form-group log-status">
-                                    <label>amarelos:</label>
+                                    <label><img src="../../../images/cartao_amarelo.png"></label>
                                     <input type="Number" class="form-control"  min="0" max=<?=$limite_amarelo?> name="cartao_amarelo" value=<?=$jogador['cartao_amarelo']?> required>
                                 </div>
 
                                 <div class="form-group log-status">
-                                    <label>vermelhos:</label>
+                                    <label><img src="../../../images/cartao_vermelho.png"></label>
                                     <input type="Number" class="form-control"  min="0"max=<?=$limite_vermelho?> name="cartao_vermelho" value=<?=$jogador['cartao_vermelho']?> required>
                                 </div>
 
                                 <div class="button_form">
-                                    <a href="listar_jogador.php?id=<?=$nome_clube?>"><input type="button" class="btn btn-danger" value="Sair"></a>
+                                    <a href="jogadores_suspensos.php"><input type="button" class="btn btn-danger" value="Sair"></a>
                                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-refresh"></span>Atualizar</button>  
                                 </div>
                                 

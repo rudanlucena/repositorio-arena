@@ -272,7 +272,9 @@ select::-ms-expand { display: none; }
 
 
  .lista_artilheiro th{
+    padding: 5px;
     text-align: center;
+    border-bottom: 2px solid;
  }
 
  .lista_artilheiro td{
@@ -299,6 +301,7 @@ select::-ms-expand { display: none; }
    color: white;
    margin: auto;
    text-align:center;
+   border-radius: 10px 20px;
 }
 
 
@@ -352,13 +355,6 @@ select::-ms-expand { display: none; }
 /*------------------------------------------------------
  elenco dos clubes
 --------------------------------------------------------*/
-
-
-.elenco_jogadores{
-  border-top: 1px solid;
-  border-color: yellow;
-}
-
 
 .detalhes_clube{
     color: white;
@@ -628,8 +624,8 @@ IPHONE 4-4S-5 PORTRAIT (320x568)
 
  /*artilheiro-page*/
  .lista_artilheiro td{
-    font-size: 12px;
-    padding: 5px;
+    font-size: 15px;
+    padding: 10px;
  }
 
  .lista_artilheiro th{
