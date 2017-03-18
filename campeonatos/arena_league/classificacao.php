@@ -75,7 +75,7 @@
                                     </td>
 
                                     <td class="saldo_gols">
-                                      <?=$clube['saldo_gols']?>
+                                      <?=$clube['sg']?>
                                     </td>
                                 </tr>
 

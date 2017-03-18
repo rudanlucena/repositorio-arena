@@ -1,5 +1,4 @@
 <?php
-
 	error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
     // obtém a conexão com o banco MySQL	
     $conexao = mysqli_connect("localhost", "root", "") or print (mysql_error());  

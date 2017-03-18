@@ -21,7 +21,7 @@
             <ul class="dropdown-menu">
                 <li ><a href="../partida/listar_rodadas.php"><span class="glyphicon glyphicon-list"></span>rodadas</a></li>
                 <li ><a href="../partida/selecionar_data.php"><span class="glyphicon glyphicon-refresh"></span>Em Tempo Real</a></li>
-                <li ><a href="../partida/agenda_rodada.php"><span class="glyphicon glyphicon-calendar"></span>Novo</a></li>
+                <li ><a href="../partida/agenda_rodada.php"><span class="glyphicon glyphicon-calendar"></span>Nova Rodada</a></li>
             </ul>
         </li>
       </ul>

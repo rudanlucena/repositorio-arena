@@ -8,7 +8,6 @@
 		$clubes = $db->query('SELECT abreviacao, id FROM clube');
             if($clubes){
                 while ($clube = $clubes->fetch_assoc()){
-                 
                 	$time = $clube['abreviacao'];
                 	$id = $clube['id'];
 
@@ -23,6 +22,7 @@
 			                if(mysqli_affected_rows($db) > 0){
 			                    $rodada = $rodadas->fetch_assoc();
 			                    if($rodada['fase'] == 'grupos'){
+			                    	echo "rodade da fase de grupos";
 
 	                                $jogos_mandante++;
 
@@ -49,13 +49,13 @@
 	                $partidas = $db->query("SELECT * FROM partida where visitante='$time'  and situacao='encerrada'");
                     if($partidas){
                         while ($partida = $partidas->fetch_assoc()){
-
+                        	
                         	$rodada_partida = $partida['rodada'];
                         	$rodadas = $db->query("SELECT * FROM rodadas where rodada='$rodada_partida'");
 			                if(mysqli_affected_rows($db) > 0){
 			                    $rodada = $rodadas->fetch_assoc();
 			                    if($rodada['fase'] == 'grupos'){
-
+                                    echo "rodade da fase de grupos";
 	                                $jogos_visitante++;
 
 	                                if($partida['placar_visitante'] > $partida['placar_mandante'])
@@ -75,7 +75,7 @@
 
 	                }     
 
-	                $vitorias = $vitorias_mandante + $vitorias_visitante;
+	                $vitorias = $vitorias_mandante + $vitorias_visitante;	                
 	                $jogos = $jogos_mandante + $jogos_visitante;
 	                $empates = $empates_mandante + $empates_visitante;
 	                $derrotas = $derrotas_mandante + $derrotas_visitante;
@@ -91,8 +91,7 @@
 	                	$pontos_empate = $ponto['pontos_empate'];
 	                	$pontos_derrota = $ponto['pontos_derrota'];
 
-	                	$pontos_clube_atual = ($vitorias * $pontos_vitoria) + ($empates * $pontos_empate) + ($derrotas * $pontos_derrota);
-	                    
+	                	$pontos_clube_atual = ($vitorias * $pontos_vitoria) + ($empates * $pontos_empate) + ($derrotas * $pontos_derrota);	                	   
 	   
 	                    $sql = "UPDATE clube set pontos='$pontos_clube_atual', jogos='$jogos', vitorias='$vitorias', empates='$empates', derrotas='$derrotas',
 	                             gm='$gols_marcados', gs='$gols_sofridos', sg='$saldo_gols' where id='$id'";
