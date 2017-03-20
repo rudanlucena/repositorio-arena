@@ -55,7 +55,7 @@
                                       while ($clube = $clubes->fetch_assoc()){
                               ?>            
                                       <div class="col-md-3 col-sm-4 clubes">
-                                          <a href="listar_jogador.php?id=<?=$clube['nome']?>">
+                                          <a href="listar_jogador.php?id=<?=$clube['abreviacao']?>">
                                             <div class="team-member">
                                                 <div class="member-thumb">
                                                     <img src="../../../images/generics/escudo.png" alt="">

@@ -38,7 +38,6 @@
     <script src="../js/modernizr.js"></script>
 
     <?php
-       include("../banco.php");
        include("../conexao.php");
     ?>    
 </head>

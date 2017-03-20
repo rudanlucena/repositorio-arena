@@ -70,11 +70,11 @@
                                             <option class="marcacao_red" value='<?=$jogador['clube']?>' selected><?=$jogador['clube']?></option>
 
                                             <?php
-                                              $clubes = $db->query('SELECT nome from clube');
+                                              $clubes = $db->query('SELECT abreviacao from clube');
                                               if($clubes){
                                                   while ($clube = $clubes->fetch_assoc()){
                                             ?>
-                                                        <option value='<?=$clube['nome']?>'><?=$clube['nome']?></option>
+                                                        <option value='<?=$clube['abreviacao']?>'><?=$clube['abreviacao']?></option>
 
                                             <?php         
                                                      }

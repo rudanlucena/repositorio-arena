@@ -305,6 +305,11 @@ select::-ms-expand { display: none; }
    color: white;
    margin: auto;
    text-align:center;
+   padding-left: 10px;
+   padding-right: 10px;
+   -moz-border-radius: 10px 20px;
+   -webkit-border-radius: 10px 20px;
+   -khtml-border-radius: 10px 20px;
    border-radius: 10px 20px;
 }
 

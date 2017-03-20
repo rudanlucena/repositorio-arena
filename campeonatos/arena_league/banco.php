@@ -50,7 +50,7 @@
                     cartao_amarelo int not null default 0,
                     cartao_vermelho int not null default 0,
                     status varchar(8),
-                    FOREIGN KEY (clube) REFERENCES clube(nome)
+                    FOREIGN KEY (clube) REFERENCES clube(abreviacao)
                     ON DELETE CASCADE ON UPDATE CASCADE
                 )";
       

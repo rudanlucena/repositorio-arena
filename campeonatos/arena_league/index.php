@@ -240,7 +240,7 @@
                                                                         </tr> 
                                                                          
                                                                         <?php
-                                                                           $artilheiros = $db->query('SELECT * FROM `jogadores`  where gols>=1 order by gols desc, nome asc');
+                                                                           $artilheiros = $db->query('SELECT * FROM jogadores  where gols>=1 order by gols desc, nome asc');
                                                                             if($artilheiros){
                                                                                 $cont = 1;
                                                                                 while ($artilheiro = $artilheiros->fetch_assoc()){
@@ -308,7 +308,7 @@
                                         $clubes = $db->query("SELECT * from clube order by nome");
                                         if($clubes){
                                             while ($clube = $clubes->fetch_assoc()){
-                                                $time = $clube['nome'];
+                                                $time = $clube['abreviacao'];
                                                 $abreviacao = $clube['abreviacao'];  
                                     ?> 
 
@@ -368,7 +368,7 @@
                                                                                         <div class="nome_jogador">
                                                                                             <spam class="member-name"><?=$jogador['nome']?></spam> 
                                                                                                 <div class="posicao_jogador">
-                                                                                                    <span ><?=$jogador['posicao']?></span>
+                                                                                                    <span class="member-name"><?=$jogador['posicao']?></span>
                                                                                                     <span><?=$jogador['num_camisa']?></span> 
                                                                                                 </div>
                                                                                         </div> 
