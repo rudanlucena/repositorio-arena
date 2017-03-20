@@ -31,6 +31,9 @@
           width: auto;
           margin: auto;
       }
+      #myCarousel{
+        margin-bottom: 30px;
+      }
 
       .language-select { text-align: center; position: relative; z-index: 9999; top: 30px; margin-bottom: 60px; }
       </style>
@@ -65,30 +68,11 @@
                                       <ol class="carousel-indicators">
                                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                         <li data-target="#myCarousel" data-slide-to="1"></li>
-                                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                                        <li data-target="#myCarousel" data-slide-to="3"></li>
                                       </ol>
 
                                       <!-- Wrapper for slides -->
                                       <div class="carousel-inner" role="listbox">
-
                                         <div class="item active">
-                                          <a href="campeonatos/arena_santo_antonio/index.php"><img src="images/slide/uniaoJovem.jpg" alt="M1LG4AU">
-                                          <div class="carousel-caption">
-                                            <h3>ST ANTÔNIO</h3>
-                                            <p>CAMPEÃO UJO</p>
-                                          </div></a>
-                                        </div>
-
-                                        <div class="item">
-                                          <a href="campeonatos/arena_santo_antonio/index.php"><img src="images/slide/anaua.jpg" alt="M1LG4AU">
-                                          <div class="carousel-caption">
-                                            <h3>ST ANTÔNIO</h3>
-                                            <p>VICE ANA</p>
-                                          </div></a>
-                                        </div>
-
-                                        <div class="item">
                                           <a href="#"><img src="images/slide/playStore.png" alt="M1LG4AU">
                                           <div class="carousel-caption">
                                           </div></a>
@@ -115,12 +99,15 @@
                                      </a>
                                   </div>
 
-                                  
+                                  <div class="page-header">
+                                        <h2 class="page-title">CAMPEOANATOS</h2>
+                                     </div> <!-- /.page-header -->
+
                                   <div class="language-select ">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <select name="cat2" onchange="javascript: abrejanela(this.value)">
-                                                <option value="#" selected>-- CAMPEONATOS --</option>
+                                                <option value="#" selected>-- SELECIONE --</option>
                                                 <?php
                                                    $campeonatos = $db->query("SELECT * FROM campeonatos");
                                                    if(mysqli_affected_rows($db) > 0){

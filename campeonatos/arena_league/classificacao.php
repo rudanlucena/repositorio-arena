@@ -6,7 +6,7 @@
         $criterio_desempate1 = $config['criterio_desempate1'];
         $criterio_desempate2 = $config['criterio_desempate2'];
         $criterio_desempate3 = $config['criterio_desempate3'];
-        $criterio_desempate4 = $config['criterio_desempate4'];        
+        $criterio_desempate4 = $config['criterio_desempate4'];  
     }
 
     for($i=1; $i<=$quant_grupos; $i++){
@@ -31,18 +31,22 @@
                     </tr>
                      
                     <?php
-                        $grupo="";
-                        if($criterio_desempate1 == 'gs')
-                            $grupo = $db->query("SELECT * FROM `clube` where grupo='$i' order by pontos desc, '$criterio_desempate1' asc, '$criterio_desempate2' desc, $criterio_desempate3 desc, $criterio_desempate4 desc");
-                        else if($criterio_desempate2 == 'gs')
-                            $grupo = $db->query("SELECT * FROM `clube` where grupo='$i' order by pontos desc, '$criterio_desempate1' desc, '$criterio_desempate2' asc, $criterio_desempate3 desc, $criterio_desempate4 desc");
-                        else if($criterio_desempate3 == 'gs')
-                            $grupo = $db->query("SELECT * FROM `clube` where grupo='$i' order by pontos desc, '$criterio_desempate1' desc, '$criterio_desempate2' desc, $criterio_desempate3 asc, $criterio_desempate4 desc");
-                        else if($criterio_desempate4 == 'gs')
-                            $grupo = $db->query("SELECT * FROM `clube` where grupo='$i' order by pontos desc, '$criterio_desempate1' desc, '$criterio_desempate2' desc, $criterio_desempate3 desc, $criterio_desempate4 asc");
-                        if($grupo){
+                        $clubes=null;
+                        if($criterio_desempate1 == "gs"){
+                            $clubes= $db->query("SELECT * FROM clube where grupo='$i' ORDER BY pontos desc, $criterio_desempate1 asc, $criterio_desempate2 desc, $criterio_desempate3 desc, $criterio_desempate4 desc, nome asc");
+                        }
+                        else if($criterio_desempate2 == "gs"){
+                            $clubes= $db->query("SELECT * FROM clube where grupo='$i' ORDER BY pontos desc, $criterio_desempate1 desc, $criterio_desempate2 asc, $criterio_desempate3 desc, $criterio_desempate4 desc, nome asc");
+                        }
+                        else if($criterio_desempate3 == "gs"){
+                            $clubes= $db->query("SELECT * FROM clube where grupo='$i' ORDER BY pontos desc, $criterio_desempate1 desc, $criterio_desempate2 desc, $criterio_desempate3 asc, $criterio_desempate4 desc, nome asc");
+                        }
+                        else if($criterio_desempate4 == "gs"){
+                            $clubes= $db->query("SELECT * FROM clube where grupo='$i' ORDER BY pontos desc, $criterio_desempate1 desc, $criterio_desempate2 desc, $criterio_desempate3 desc, $criterio_desempate4 asc, nome asc");
+                        }
+                        if($clubes){
                             $cont=1;
-                            while ($clube = $grupo->fetch_assoc()){
+                            while ($clube = $clubes->fetch_assoc()){
                     ?>
 
                                 <tr>  
@@ -81,7 +85,7 @@
 
                     <?php         
                            }
-                         $grupo->free();  
+                         $clubes->free();  
                         }
                     ?>
 

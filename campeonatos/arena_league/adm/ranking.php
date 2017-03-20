@@ -21,9 +21,7 @@
                         	$rodadas = $db->query("SELECT * FROM rodadas where rodada='$rodada_partida'");
 			                if(mysqli_affected_rows($db) > 0){
 			                    $rodada = $rodadas->fetch_assoc();
-			                    if($rodada['fase'] == 'grupos'){
-			                    	echo "rodade da fase de grupos";
-
+			                    if($rodada['fase'] == "GRUPOS"){
 	                                $jogos_mandante++;
 
 	                                if($partida['placar_mandante'] > $partida['placar_visitante'])
@@ -54,8 +52,7 @@
                         	$rodadas = $db->query("SELECT * FROM rodadas where rodada='$rodada_partida'");
 			                if(mysqli_affected_rows($db) > 0){
 			                    $rodada = $rodadas->fetch_assoc();
-			                    if($rodada['fase'] == 'grupos'){
-                                    echo "rodade da fase de grupos";
+			                    if($rodada['fase'] == "GRUPOS"){
 	                                $jogos_visitante++;
 
 	                                if($partida['placar_visitante'] > $partida['placar_mandante'])

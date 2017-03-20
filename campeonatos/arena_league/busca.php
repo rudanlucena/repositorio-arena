@@ -14,8 +14,7 @@ if(mysqli_affected_rows($db) > 0){
 	        <div class="col-md-12">
                     <div class="confrontos">
                         <div class="member-infos">
-                            <h4 class="member-name"><spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <?php echo $partida['mandante']; ?> <spam class="placar"><?php echo  $partida['placar_mandante']; if($partida['placar_mandante_penalty']){ echo "(".$partida['placar_mandante_penalty'].")";} ?> </spam></h4>
-                            <h4 class="member-name"><spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <?php echo $partida['visitante']; ?> <spam class="placar"><?php echo $partida['placar_visitante']; if($partida['placar_visitante_penalty']){ echo "(".$partida['placar_visitante_penalty'].")";} ?></spam></h4>
+                            <h4 class="member-name"><spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <?php echo $partida['mandante']; ?> <spam class="placar"><?php echo  $partida['placar_mandante']; if($partida['placar_mandante_penalty']){ echo "(".$partida['placar_mandante_penalty'].")";} ?></spam> <spam class="placar"><?php echo $partida['placar_visitante']; if($partida['placar_visitante_penalty']){ echo "(".$partida['placar_visitante_penalty'].")";} ?></spam> <?php echo $partida['visitante']; ?> <spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> </h4>
                             <h5 class="member-name"><?php echo $partida['data_hora_jogo']." ".$partida['hora']; ?></h5>
                         </div><!-- /.member-infos --> 
                     </div><!-- /.confrontos -->  

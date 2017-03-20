@@ -52,9 +52,9 @@
         <div class="responsive_menu">
             <ul class="main_menu">
                 <li><a href="../../index.php" data-toggle="tooltip" data-original-title="ligas"><spam class="glyphicon glyphicon-home"></spam><i></i>Arena</a></li>
-                <li><a class="show-1 homebutton" href="#" data-toggle="tooltip" data-original-title="Informações da liga"><spam><img src="../../images/times/trofeu.png" ></spam><i class="fa"></i>Liga</a></li>
-                <li><a class="show-2" href="#" data-toggle="tooltip" data-original-title="Artilheiro"><spam><img src="../../images/times/artilheiro.png" ></spam><i class="fa"></i>Artilheiro</a></li>
-                <li><a class="show-4" href="#" data-toggle="tooltip" data-original-title="Elencos"><spam><img src="../../images/times/escudo.png" ></spam><i class="fa"></i>Elencos</a></li>
+                <li><a class="show-1 homebutton" href="#" data-toggle="tooltip" data-original-title="Informações da liga"><spam><img src="../../images/times/trofeu.png" ></spam><i class="fa"></i>Jogos</a></li>
+                <li><a class="show-2" href="#" data-toggle="tooltip" data-original-title="Artilheiro"><spam><img src="../../images/bola.png" ></spam><i class="fa"></i>Artilheiro</a></li>
+                <li><a class="show-4" href="#" data-toggle="tooltip" data-original-title="Elencos"><spam><img src="../../images/times/escudo.png" ></spam><i class="fa"></i>Clubes</a></li>
                 
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
@@ -294,41 +294,6 @@
 <!--===========================================================================================================================================================-->
 
 
-
-
-<!--===================================================================pagina do regulamento ==================================================================-->
-                        <!--<div id="menu-3" class="content">
-                            <div class="content-inner">
-                                <div class="row services">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="service">
-
-                                            <div class="header">
-                                                <div class="header-bg"></div>
-                                                <div class="service-header">
-                                                    <div class="icon">
-                                                        <spam><img src="../../images/regulamento.png">
-                                                    </div>
-                                                    <h4 class="service-title">REGULAMENTO</h4>
-                                                </div>
-                                            </div>
-
-                                            <div class="body">
-                                                <div class="regulamento">
-                                                    <iframe src="/ScrumeXPDiretodasTrincheiras.pdf" style="border: none;"></iframe>
-                                                </div>
-                                            </div>.
-
-                                        </div>
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div>-->
-<!--===========================================================================================================================================================-->
-
-
-
-
 <!--=============================================================== elencos dos clubes ========================================================================-->                        
                         <div id="menu-4" class="content">
 
@@ -445,14 +410,12 @@
                                                                                 ?> 
 
                                                                                     <div class="col-md-12">
-                                                                                        <div class="table-responsive">
-                                                                                            <div class="confrontos">
-                                                                                                <div class="member-infos">
-                                                                                                    <h5 class="member-name"> <spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <spam><?php echo $partida['mandante'];?></spam>  <spam class="placar"><?php echo $partida['placar_mandante'];?> <?php echo $partida['placar_visitante'];?></spam> <spam><?php echo $partida['visitante'];?></spam> <spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> </h5>
-                                                                                                </div><!-- /.member-infos --> 
-                                                                                            </div><!-- /.confrontos -->
-                                                                                        </div>  
-                                                                                    </div> <!-- /.col-xs-12 -->
+                                                                                        <div class="confrontos">
+                                                                                            <div class="member-infos">
+                                                                                                <h4 class="member-name"><spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <?php echo $partida['mandante']; ?> <spam class="placar"><?php echo  $partida['placar_mandante']; if($partida['placar_mandante_penalty']){ echo "(".$partida['placar_mandante_penalty'].")";} ?></spam> <spam class="placar"><?php echo $partida['placar_visitante']; if($partida['placar_visitante_penalty']){ echo "(".$partida['placar_visitante_penalty'].")";} ?></spam> <?php echo $partida['visitante']; ?> <spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> </h4>
+                                                                                            </div><!-- /.member-infos --> 
+                                                                                        </div><!-- /.confrontos -->  
+                                                                                    </div> <!-- /.col-md-12 -->
 
                                                                                 <?php         
                                                                                       }

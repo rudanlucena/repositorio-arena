@@ -221,6 +221,10 @@ select::-ms-expand { display: none; }
 
 .member-infos { padding: 5px;}
 
+.member-infos h5{
+  margin: 0px;
+}
+
 .member-name { margin: 0 0 5px 0; color: white; text-transform: uppercase; }
 
 .member-role { font-size: 13px; color: #6f6f6f; }
@@ -365,7 +369,7 @@ select::-ms-expand { display: none; }
 }
 
 .historico_confrontos{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .historico_confrontos th{
@@ -379,6 +383,7 @@ select::-ms-expand { display: none; }
 .confrontos{
   text-align: center;
 }
+
 
 .confrontos .placar{
   font-size: 20px;

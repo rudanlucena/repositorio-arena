@@ -129,10 +129,10 @@
                 pontos_vitoria int not null default 3,
                 pontos_empate int not null default 1,
                 pontos_derrota int not null default 0,
-                criterio_desempate1 varchar(2) not null default 'v',
-                criterio_desempate2 varchar(2) not null default 'sg',
-                criterio_desempate3 varchar(2) not null default 'gm',
-                criterio_desempate4 varchar(2) not null default 'gs'
+                criterio_desempate1 varchar(8) not null default 'vitorias',
+                criterio_desempate2 varchar(8) not null default 'sg',
+                criterio_desempate3 varchar(8) not null default 'gm',
+                criterio_desempate4 varchar(8) not null default 'gs'
             )"; 
 
             // Executa o comando SQL
