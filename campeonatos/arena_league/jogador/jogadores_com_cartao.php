@@ -90,7 +90,7 @@
                                                                     </td>
 
                                                                     <td>
-                                                                      <spam class="member-name"><?=$jogador['status']?></spam>
+                                                                      <spam class="member-name marcacao_red"><?=$jogador['status']?></spam>
                                                                     </td>
 
                                                                     <td class="editar">
