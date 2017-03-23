@@ -1,23 +1,54 @@
-<audio autoplay="autoplay">
-    <source src="../../audios/gol.mp3" type="audio/mp3" />
-    seu navegador não suporta HTML5
-</audio>
-
 <?php
     include("conexao.php"); 
     global $db;
     $id_partida = $_GET['id_partida'];
-    echo $id_partida;
-
+    
     $partidas = $db->query("SELECT * from partida where id = '$id_partida' ");
     if($partidas){
         if(mysqli_affected_rows($db) >= 1){
-            while ($partida = $partidas->fetch_assoc()){                                                                            
+            if($partida = $partidas->fetch_assoc()){
+                $gols_mandante = $partida['placar_mandante'];
+                echo "gols_mandante".$gols_mandante;
+                $gols_visitante = $partida['placar_visitante']; 
+                $gols_mandante_penalty = $partida['placar_mandante_penalty'];
+                $gols_visitante_penalty = $partida['placar_visitante_penalty']; 
+
+                $aux = $db->query("SELECT * from aux_jogos_andamentos where id = '$id_partida' ");
+                if($aux){
+                    if(mysqli_affected_rows($db) >= 1){
+                        $aux = $aux->fetch_assoc();
+                        echo "aux".$aux['placar_mandante'];
+                        if($gols_mandante > $aux['placar_mandante']){ echo "string"; ?>
+                            <audio autoplay="autoplay">
+                                <source src="../audios/gol.mp3" type="audio/mp3" />
+                                seu navegador não suporta HTML5
+                            </audio>
+                         <?php }
+                        if($gols_visitante > $aux['placar_visitante']){ echo "string"; ?>
+                            <audio autoplay="autoplay">
+                                <source src="../../audios/gol.mp3" type="audio/mp3" />
+                                seu navegador não suporta HTML5
+                            </audio>
+                         <?php }
+                        if($gols_mandante_penalty > $aux['placar_mandante_penalty']){ echo "string"; ?>
+                            <audio autoplay="autoplay">
+                                <source src="../../audios/gol.mp3" type="audio/mp3" />
+                                seu navegador não suporta HTML5
+                            </audio>
+                         <?php }
+                        if($gols_visitante_penalty > $aux['placar_visitante_penalty']){ echo "string"; ?>
+                            <audio autoplay="autoplay">
+                                <source src="../../audios/gol.mp3" type="audio/mp3" />
+                                seu navegador não suporta HTML5
+                            </audio>
+                         <?php }
+
+                        
+                    } 
+                }                                                                        
 ?> 
 
-
-
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="confrontos">
                         <div class="member-infos">
                             <h5 class="member-name"> <spam class="glyphicon"><img src="../../images/times/escudo.png"></spam> <spam> <?php echo $partida['mandante'];?></spam> <spam class="placar"><?php echo $partida['placar_mandante'].$partida['placar_mandante_penalty'];;?></spam></h5>
@@ -30,7 +61,9 @@
 <?php         
             }
         $partidas->free(); 
-        }                                                    
+        }
+
+
     }
 
 ?>
