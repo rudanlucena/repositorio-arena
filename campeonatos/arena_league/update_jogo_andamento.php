@@ -2,11 +2,13 @@
     include("conexao.php"); 
     global $db;
     $id_partida = $_GET['id_partida'];
+    echo $id_partida;
 
     $partidas = $db->query("SELECT * from partida where $id_partida ");
     if($partidas){
         if(mysqli_affected_rows($db) >= 1){
-            while ($partida = $partidas->fetch_assoc()){                                                                             
+            while ($partida = $partidas->fetch_assoc()){ 
+            echo "string";                                                                            
 ?> 
 
 <audio autoplay="autoplay">
