@@ -16,25 +16,25 @@
                 if($aux){
                     if(mysqli_affected_rows($db) >= 1){
                         $aux = $aux->fetch_assoc();
-                        if($gols_mandante > $aux['placar_mandante']){ echo "string"; ?>
+                        if($gols_mandante > $aux['placar_mandante']){?>
                             <audio autoplay="autoplay">
                                 <source src="../../audios/gol.mp3" type="audio/mp3" />
                                 seu navegador não suporta HTML5
                             </audio>
                          <?php }
-                        if($gols_visitante > $aux['placar_visitante']){ echo "string"; ?>
+                        if($gols_visitante > $aux['placar_visitante']){?>
                             <audio autoplay="autoplay">
                                 <source src="../../audios/gol.mp3" type="audio/mp3" />
                                 seu navegador não suporta HTML5
                             </audio>
                          <?php }
-                        if($gols_mandante_penalty > $aux['placar_mandante_penalty']){ echo "string"; ?>
+                        if($gols_mandante_penalty > $aux['placar_mandante_penalty']){?>
                             <audio autoplay="autoplay">
                                 <source src="../../audios/gol.mp3" type="audio/mp3" />
                                 seu navegador não suporta HTML5
                             </audio>
                          <?php }
-                        if($gols_visitante_penalty > $aux['placar_visitante_penalty']){ echo "string"; ?>
+                        if($gols_visitante_penalty > $aux['placar_visitante_penalty']){?>
                             <audio autoplay="autoplay">
                                 <source src="../../audios/gol.mp3" type="audio/mp3" />
                                 seu navegador não suporta HTML5

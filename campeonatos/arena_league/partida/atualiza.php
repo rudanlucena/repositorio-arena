@@ -46,25 +46,25 @@
                                             if($situacao == "agendada"){
                                                 $sql ="UPDATE partida set data_hora_jogo ='$data', hora='$hora', situacao='agendada', placar_mandante=null, placar_visitante=null where id='$id'";
                                                 $result = mysqli_query( $db, $sql);
-                                                         if(!$result){
-                                                              ?>
-                                                              <div class="alert alert-danger">
-                                                                      <strong>Error!</strong> não foi possivel atualizar a partida.
-                                                                      <a href="listar_partidas.php?rodada=<?=$rodada?>"><button type="button" class="btn btn-danger">ok</button>
-                                                              </div>
-                                                              <?php
-                                                         }else{
-                                                             $partidas = $db->query("SELECT * from aux_jogos_andamentos where id = '$id' ");
-                                                             if(mysqli_affected_rows($db) == 1){
-                                                                $partida = $db->query("DELETE from aux_jogos_andamentos where id = '$id' ");
-                                                             }
-                                                             ?>
-                                                             <div class="alert alert-success">
-                                                                       <strong>Success!</strong> partida atualizada com sucesso.
-                                                                            <a href="listar_partidas.php?rodada=<?=$rodada?>"><button type="button" class="btn btn-primary">ok</button>
-                                                                        </div>
-                                                            <?php
-                                                         }
+                                                   if(!$result){
+                                                        ?>
+                                                        <div class="alert alert-danger">
+                                                                <strong>Error!</strong> não foi possivel atualizar a partida.
+                                                                <a href="listar_partidas.php?rodada=<?=$rodada?>"><button type="button" class="btn btn-danger">ok</button>
+                                                        </div>
+                                                        <?php
+                                                   }else{
+                                                       $partidas = $db->query("SELECT * from aux_jogos_andamentos where id = '$id' ");
+                                                       if(mysqli_affected_rows($db) == 1){
+                                                          $partida = $db->query("DELETE from aux_jogos_andamentos where id = '$id' ");
+                                                       }
+                                                       ?>
+                                                       <div class="alert alert-success">
+                                                                 <strong>Success!</strong> partida atualizada com sucesso.
+                                                                      <a href="listar_partidas.php?rodada=<?=$rodada?>"><button type="button" class="btn btn-primary">ok</button>
+                                                                  </div>
+                                                      <?php
+                                                   }
                                             }
                                             else if($situacao == "andamento"){
                                                 if($placar_mandante == ""){

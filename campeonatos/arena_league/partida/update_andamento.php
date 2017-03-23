@@ -57,6 +57,18 @@
 
 													     ranking();
 													 }
+													 $partidas = $db->query("SELECT * from aux_jogos_andamentos where id = '$id' ");
+                                                     if(mysqli_affected_rows($db) == 0){
+                                                         $sql ="INSERT INTO aux_jogos_andamentos (id, placar_mandante,  placar_visitante, placar_mandante_penalty, placar_visitante_penalty) values('$id', '$placar_mandante', '$placar_visitante', '$placar_mandante_penalty', '$placar_visitante_penalty') ";           
+                                                         $result = mysqli_query( $db, $sql);
+                                                         if(!$result){
+                                                              ?>
+                                                              <div class="alert alert-danger">
+                                                                      <strong>Error!</strong>A alerta de gols não está habilitado corretamente.
+                                                              </div>
+                                                              <?php
+                                                         }
+                                                    }
 							mysqli_close($db);						 
 						?>                         
                     </div><!-- /.col-md-12-->
