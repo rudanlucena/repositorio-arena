@@ -25,7 +25,7 @@
     
     <?php
         include("conexao.php"); 
-        $id_partida = $_GET['id'];
+        $id_partida = $_GET['id_partida'];
     ?>
 
     <script>
