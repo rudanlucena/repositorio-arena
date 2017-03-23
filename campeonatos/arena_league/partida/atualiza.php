@@ -84,27 +84,28 @@
                                                                 </div>
                                                                 <?php
                                                            }else{
-                                                                ?>
-                                                               <div class="alert alert-success">
+
+                                                              $partidas = $db->query("SELECT * from aux_jogos_andamentos where id = '$id' ");
+                                                              if(mysqli_affected_rows($db) == 0){
+                                                                  $sql ="INSERT INTO aux_jogos_andamentos (id, placar_mandante,  placar_visitante, placar_mandante_penalty, placar_visitante_penalty) values('$id', '$placar_mandante', '$placar_visitante', '$placar_mandante_penalty', '$placar_visitante_penalty') ";           
+                                                                  $result = mysqli_query( $db, $sql);
+                                                                  if(!$result){
+                                                                        ?>
+                                                                        <div class="alert alert-danger">
+                                                                                <strong>Error!</strong>A alerta de gols não está habilitado corretamente.
+                                                                        </div>
+                                                                        <?php
+                                                                   }
+                                                              }
+                                                              ?>
+
+                                                              <div class="alert alert-success">
                                                                          <strong>Success!</strong> partida atualizada com sucesso.
                                                                               <a href="listar_partidas.php?rodada=<?=$rodada?>"><button type="button" class="btn btn-primary">ok</button>
-                                                               </div>
-                                                              <?php
-                                                           }
-
-                                                    $partidas = $db->query("SELECT * from aux_jogos_andamentos where id = '$id' ");
-                                                    if(mysqli_affected_rows($db) == 0){
-                                                        $sql ="INSERT INTO aux_jogos_andamentos (id, placar_mandante,  placar_visitante, placar_mandante_penalty, placar_visitante_penalty) values('$id', '$placar_mandante', '$placar_visitante', '$placar_mandante_penalty', '$placar_visitante_penalty') ";           
-                                                        $result = mysqli_query( $db, $sql);
-                                                        if(!$result){
-                                                              ?>
-                                                              <div class="alert alert-danger">
-                                                                      <strong>Error!</strong>A alerta de gols não está habilitado corretamente.
                                                               </div>
                                                               <?php
-                                                         }
-                                                    }
-                                                
+                                                           }
+   
                                             }else{
                                                 $sql ="UPDATE partida set data_hora_jogo ='$data', hora='$hora', placar_mandante='$placar_mandante', placar_mandante_penalty='$placar_mandante_penalty', placar_visitante='$placar_visitante', placar_visitante_penalty='$placar_visitante_penalty', situacao='$situacao' where id='$id'";
                                                 $result = mysqli_query( $db, $sql);
