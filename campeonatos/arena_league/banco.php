@@ -140,7 +140,24 @@
       
             // Verifica se o comando foi executado com sucesso
             if(!$result)
-                die("Falha na tabela settings: " . mysqli_error());   
+                die("Falha na tabela settings: " . mysqli_error());
+
+            //release2 
+            $sql = "CREATE TABLE if not exists aux_jogos_andamentos(
+                id int primary key,
+                placar_mandante int not null,
+                placar_visitante int not null,
+                placar_mandante_penalty varchar(4),
+                placar_visitante_penalty varchar(4),
+                fOREIGN key(id) REFERENCES partida(id) ON DELETE CASCADE ON UPDATE CASCADE
+            )"; 
+
+            // Executa o comando SQL
+            $result = mysqli_query($conexao,$sql);
+      
+            // Verifica se o comando foi executado com sucesso
+            if(!$result)
+                die("Falha na tabela aux_jogos_andamentos: " . mysqli_error());   
 
             
 

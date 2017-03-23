@@ -44,58 +44,24 @@
     <div class="bg-image"></div>
     <div class="overlay-bg"></div>
 
-    <!-- menu para dispositivos moveis-->
-    <div class="responsive-navigation visible-sm visible-xs">
-        <a href="#" class="menu-toggle-btn">
-            <i class="fa fa-bars fa-2x"></i>
-        </a>
-        <div class="responsive_menu">
-            <ul class="main_menu">
-                <li><a href="../../index.php" data-toggle="tooltip" data-original-title="ligas"><spam class="glyphicon glyphicon-home"></spam><i></i>Arena</a></li>
-                <li><a class="show-1 homebutton" href="#" data-toggle="tooltip" data-original-title="Informações da liga"><spam><img src="../../images/times/trofeu.png" ></spam><i class="fa"></i>Jogos</a></li>
-                <li><a class="show-2" href="#" data-toggle="tooltip" data-original-title="Artilheiro"><spam><img src="../../images/bola.png" ></spam><i class="fa"></i>Artilheiro</a></li>
-                <li><a class="show-4" href="#" data-toggle="tooltip" data-original-title="Elencos"><spam><img src="../../images/times/escudo.png" ></spam><i class="fa"></i>Clubes</a></li>
-                
-            </ul> <!-- /.main_menu -->
-        </div> <!-- /.responsive_menu -->
-    </div> <!-- /responsive_navigation -->
+    <?php
+        include("menu_mobile.php");
+    ?>
     
     <div class="main-content">
         <div class="container">
             <div class="row">
 
-                <!-- menu estatico -->
-                <div class="col-md-2 visible-md visible-lg">
-                    <div class="main_menu">
-                        <div class="menu_fifa">
-                            <a href="../../index.php" data-toggle="tooltip"><div class="menu_item"><spam class="glyphicon glyphicon-home"></spam>ARENA</div></a>
-                            <a class="show-1 homebutton" href="#"><div class="menu_item">JOGOS</div></a>
-                            <a class="show-2" href="#" data-toggle="tooltip"><div class="menu_item">ARTILHEIROS</div></a>
-                            <a class="show-4" href="#" data-toggle="tooltip"><div class="menu_item">CLUBES</div></a>  
-                            
-                        </div>
-                    </div> <!-- /.main-menu -->
-                </div> <!-- /.col-md-2 -->
+                <?php
+                    include("menu_estatico.php")
+                ?>
 
                 <!-- Begin Content -->
                 <div class="col-md-10">
 
-                   <div class="row">
-                        <div class="col-md-12">
-                            <div class="templatemo_logo">
-                                
-                                    <img class="logo_arena" src="../../images/logo_arena/arenam1lg4au.png">
-                                    <?php
-                                        $settings = $db->query("SELECT nome_campeonato from settings");
-                                        if($settings){
-                                            $settings = $settings->fetch_assoc();
-                                            $nome = $settings['nome_campeonato'];                                             
-                                        } 
-                                    ?>
-                                    <h1 class="texto_amarelo"><?php echo $nome ?></h1>
-                            </div> <!-- /.logo -->
-                        </div> <!-- /.col-md-12 -->
-                    </div> <!-- /.row -->
+                   <?php
+                        include("logo_arena.php");
+                   ?>
                      
 
                     <div id="menu-container">
@@ -122,6 +88,7 @@
                                             <div class="body">
                                                 <div class="row">
                                                     <div id="update_jogos">
+
 
                                                     </div>
                                                 </div>      
