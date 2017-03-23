@@ -149,7 +149,7 @@
                 placar_visitante int not null,
                 placar_mandante_penalty varchar(4),
                 placar_visitante_penalty varchar(4),
-                fOREIGN key(id) REFERENCES partida(id) ON DELETE CASCADE ON UPDATE CASCADE
+                fOREIGN key(id) REFERENCES partida(id) ON DELETE CASCADE
             )"; 
 
             // Executa o comando SQL

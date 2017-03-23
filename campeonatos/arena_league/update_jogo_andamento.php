@@ -20,7 +20,7 @@
                         echo "aux".$aux['placar_mandante'];
                         if($gols_mandante > $aux['placar_mandante']){ echo "string"; ?>
                             <audio autoplay="autoplay">
-                                <source src="../audios/gol.mp3" type="audio/mp3" />
+                                <source src="../../audios/gol.mp3" type="audio/mp3" />
                                 seu navegador não suporta HTML5
                             </audio>
                          <?php }
@@ -43,7 +43,9 @@
                             </audio>
                          <?php }
 
-                        
+                        if(($aux['placar_mandante'] != $gols_mandante) or ($aux['placar_visitante'] != $gols_visitante) or ($aux['placar_mandante_penalty'] != $gols_mandante_penalty) or ($aux['placar_visitante_penalty'] != $gols_visitante_penalty)){
+                            $result = $db->query("UPDATE aux_jogos_andamentos SET placar_mandante='$gols_mandante', placar_visitante='$gols_visitante', placar_mandante_penalty='$gols_mandante_penalty', placar_visitante_penalty='$gols_visitante_penalty ");
+                        }
                     } 
                 }                                                                        
 ?> 

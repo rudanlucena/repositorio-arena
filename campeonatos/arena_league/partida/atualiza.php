@@ -103,15 +103,6 @@
                                                               </div>
                                                               <?php
                                                          }
-                                                    }else{
-                                                        $partidas = $db->query("UPDATE aux_jogos_andamentos SET placar_mandante='$placar_mandante', placar_visitante='$placar_visitante', placar_mandante_penalty='$placar_mandante_penalty', placar_visitante_penalty='$placar_visitante' where id = '$id' ");
-                                                        if(!$result){
-                                                              ?>
-                                                              <div class="alert alert-danger">
-                                                                      <strong>Error!</strong>A alerta de gols não está habilitado corretamente.
-                                                              </div>
-                                                              <?php
-                                                        }
                                                     }
                                                 
                                             }else{
