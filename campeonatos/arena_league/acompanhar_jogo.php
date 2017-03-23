@@ -45,10 +45,17 @@
     <div class="bg-image"></div>
     <div class="overlay-bg"></div>
 
-    
+    <?php
+        include("menu_mobile.php");
+    ?>
+
     <div class="main-content">
         <div class="container">
             <div class="row">
+
+                <?php
+                    include("menu_estatico.php")
+                ?>
 
                 <!-- Begin Content -->
                 <div class="col-md-10">
