@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
     // obtém a conexão com o banco MySQL
@@ -61,6 +61,8 @@
                 if(!$result)
                     die("falha na tabela campeonatos ".mysqli_error());
 
+                //===================================================
+
                 $sql ="CREATE TABLE if not exists login(
                         id int auto_increment primary key,
                         usuario varchar(25) not null,
@@ -69,7 +71,22 @@
 
                 $result = mysqli_query($conexao, $sql);
                 if(!$result)
-                    die("falaha na tabela login ".mysqli_error());
+                    die("falha na tabela login ".mysqli_error());
+
+                //==============================================================
+
+                $sql ="CREATE TABLE if not exists patrocinador(
+                        id int auto_increment primary key,
+                        nome varchar(150) not null unique,
+                        email varchar(150),
+                        cnpj varchar(150) not null,
+                        telefone varchar(17),
+                        valor int not null
+                    )";
+
+                $result = mysqli_query($conexao, $sql);
+                if(!$result)
+                    die("falha na tabela patrocinador ".mysqli_error());
         		   
     }
   // fecha a conexão

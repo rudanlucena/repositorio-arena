@@ -28,6 +28,16 @@
         </li>
 
         <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Patrocinador
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ><a href="listar_patrocinador.php"><span class="glyphicon glyphicon-list"></span>Patrocinadores</a></li>
+                <li ><a href="novo_patrocinador.php"><span class="glyphicon glyphicon-plus"></span>Novo Patrocinador</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" >Conta
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
