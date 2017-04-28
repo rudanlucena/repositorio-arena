@@ -38,6 +38,16 @@
         </li>
 
         <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Partida
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ><a href="listar_partida.php"><span class="glyphicon glyphicon-list"></span>Partidas</a></li>
+                <li ><a href="nova_partida.php"><span class="glyphicon glyphicon-plus"></span>Nova partida</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" >Conta
             <span class="caret"></span></a>
             <ul class="dropdown-menu">

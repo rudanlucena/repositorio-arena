@@ -87,7 +87,21 @@
                 $result = mysqli_query($conexao, $sql);
                 if(!$result)
                     die("falha na tabela patrocinador ".mysqli_error());
-        		   
+
+                //=========================================================================
+        		  
+                  $sql ="CREATE TABLE if not exists partida(
+                        id int auto_increment primary key,
+                        nome varchar(150) not null unique,
+                        data varchar(20)
+                    )";
+
+                $result = mysqli_query($conexao, $sql);
+                if(!$result)
+                    die("falha na tabela partida ".mysqli_error());
+
+
+
     }
   // fecha a conexão
   mysqli_close($conexao); 

@@ -37,6 +37,25 @@
     <script src="../js/jquery-1.10.2.min.js"></script>
     <script src="../js/modernizr.js"></script>
 
+    <!-- Calendario -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            var queryDate = '2017/04/27',//data aqui
+            dateParts = queryDate.match(/(\d+)/g)
+            realDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);  
+
+            $('#calendario').datepicker({ dateFormat: 'yy/mm/dd' });
+            $('#calendario').datepicker('setDate', realDate);
+
+            $( "#calendario" ).datepicker();
+        });
+
+
+    </script>
     <?php
        include("../conexao.php");
     ?>    
@@ -69,29 +88,25 @@
 
                                 <div  class="ligas">
                                      <div class="page-header">
-                                        <h2 class="page-title">PATROCINADORES</h2>
+                                        <h2 class="page-title">PARTIDA</h2>
                                      </div> <!-- /.page-header -->
 
                                      <div class="row">
                                         <?php
-                                            $patrocinador = $db->query("SELECT * FROM PATROCINADOR");
-                                            if($patrocinador){
-                                                while($patrocinadores = $patrocinador->fetch_assoc()){
+                                            $partida = $db->query("SELECT * FROM PARTIDA");
+                                            if($partida){
+                                                while($partidas = $partida->fetch_assoc()){
+
                                         ?>
                                                     <div class="col-md-3 clubes">
                                                       <div class="team-member">
-                                                          <div class="member-thumb">
-                                                              <img src="../images/menus/generic.png" alt="">
-                                                          </div>
+                                                          <div id="calendario"/>
                                                           <div class="member-infos">
-                                                            <h5 class="member-name texto_amarelo"><?=$patrocinadores['nome']?></h5>
-                                                            <h6 class="member-name"><spam class="glyphicon glyphicon-link"></spam><?=$patrocinadores['email']?></h6>
-                                                            <h6 class="member-name"><spam class="glyphicon glyphicon-user"></spam><?=$patrocinadores['cnpj']?></h6>
-                                                            <h6 class="member-name"><spam class="glyphicon glyphicon-phone"></spam><?=$patrocinadores['telefone']?></h6>
-                                                            <h6 class="member-name"><spam class="glyphicon glyphicon-bitcoin"></spam><?=$patrocinadores['valor']?></h6>
+                                                            <h5 class="member-name texto_amarelo"><?=$partidas['nome']?></h5>
+                                                            <h6 class="member-name"><spam class="glyphicon glyphicon-link"></spam><?=$partidas['data']?></h6>
                                                                 <ul class="member-social">
-                                                                  <li><a href="editar_patrocinador.php?id=<?=$patrocinadores['id']?>"><span class="glyphicon glyphicon-pencil"></span></a></li>
-                                                                  <li class="excluir_patrocinador"><a href="termo_excluir_patrocinador.php?id=<?=$patrocinadores['id']?>"><span class="glyphicon glyphicon-trash"></span></a></li>
+                                                                  <li><a href="editar_partida.php?id=<?=$partidas['id']?>"><span class="glyphicon glyphicon-pencil"></span></a></li>
+                                                                  <li class="excluir_patrocinador"><a href="termo_excluir_partida.php?id=<?=$partidas['id']?>"><span class="glyphicon glyphicon-trash"></span></a></li>
                                                                 </ul>
                                                           </div>
                                                       </div>
@@ -99,7 +114,7 @@
 
                                         <?php
                                                }
-                                               $patrocinador->free();
+                                               $partida->free();
                                            }
 
                                         ?>            
