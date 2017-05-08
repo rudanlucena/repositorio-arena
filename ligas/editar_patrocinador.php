@@ -27,6 +27,9 @@
        text-align: center;
        margin-top: 20px;
      }
+     .invisivel{
+      display: none;
+     }
      </style>
 </head>
 
@@ -40,7 +43,7 @@
       <div class="main-content">
           <div class="container">
 
-                        <form action="atualiza_patrocinador.php" method="post" name="liga">
+                        <form action="atualiza_patrocinador.php" enctype="multipart/form-data" method="post" name="liga">
                           <?php
                               $patrocinador = $db->query("SELECT * FROM patrocinador where id='$id'");
                               if($patrocinador){
@@ -51,6 +54,8 @@
                                     <div class="templatemo_logo">        
                                        <img  src="../images/menus/generic.png">
                                     </div> <!-- /.logo -->
+
+                                    <input class="invisivel" name="id" value='<?php echo $patrocinadores["id"];?>'>
 
                                     <div class="form-group">
                                         <label>nome:</label>
@@ -75,6 +80,11 @@
                                     <div class="form-group">
                                         <label>valor:</label>
                                         <input type="number" class="form-control" name="valor" value='<?=$patrocinadores['valor']?>' >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Logo</label>
+                                        <input type="File" name="logo">
                                     </div>
 
                                     <div class="button_form">                              

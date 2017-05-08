@@ -39,7 +39,13 @@
 
     <?php
        include("../conexao.php");
-    ?>    
+    ?>
+
+    <style>
+    .img-patrocinador{
+        height: 150px;
+    }
+    </style>    
 </head>
 
 <body>
@@ -74,14 +80,14 @@
 
                                      <div class="row">
                                         <?php
-                                            $patrocinador = $db->query("SELECT * FROM PATROCINADOR");
+                                            $patrocinador = $db->query("SELECT * FROM patrocinador");
                                             if($patrocinador){
                                                 while($patrocinadores = $patrocinador->fetch_assoc()){
                                         ?>
                                                     <div class="col-md-3 clubes">
                                                       <div class="team-member">
-                                                          <div class="member-thumb">
-                                                              <img src="../images/menus/generic.png" alt="">
+                                                          <div class="member-thumb img-patrocinador">
+                                                              <img height="100%" src="../images/patrocinadores/<?php echo $patrocinadores["logo"];?>" alt="">
                                                           </div>
                                                           <div class="member-infos">
                                                             <h5 class="member-name texto_amarelo"><?=$patrocinadores['nome']?></h5>

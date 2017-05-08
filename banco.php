@@ -3,7 +3,7 @@
 	error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
     // obtém a conexão com o banco MySQL
 	
-    $conexao = mysqli_connect("localhost", "root", "") or print (mysql_error());  
+    $conexao = mysqli_connect("localhost", "root", "hvlk") or print (mysql_error());  
   
   	  $sql = "use ligas";
    
@@ -81,7 +81,8 @@
                         email varchar(150),
                         cnpj varchar(150) not null,
                         telefone varchar(17),
-                        valor int not null
+                        valor int not null,
+                        logo varchar(30)
                     )";
 
                 $result = mysqli_query($conexao, $sql);

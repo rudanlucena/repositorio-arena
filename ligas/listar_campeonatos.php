@@ -74,7 +74,7 @@
 
                                      <div class="row">
                                         <?php
-                                            $campeonatos = $db->query("SELECT * FROM CAMPEONATOS");
+                                            $campeonatos = $db->query("SELECT * FROM campeonatos");
                                             if($campeonatos){
                                                 while($campeonato = $campeonatos->fetch_assoc()){
                                         ?>

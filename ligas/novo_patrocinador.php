@@ -40,7 +40,7 @@
       <div class="main-content">
           <div class="container">
 
-                        <form action="insert_patrocinador.php" method="post" name="partida">
+                        <form action="insert_patrocinador.php" enctype="multipart/form-data" method="post" name="partida">
                             <div class="login-form">
 
                                 <div class="templatemo_logo">        
@@ -71,6 +71,11 @@
                                 <div class="form-group">
                                     <label>valor:</label>
                                     <input type="number" class="form-control" maxlength="150" name="valor" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <input type="File" name="logo" required>
                                 </div>
 
                                 <div class="button_form">                              
